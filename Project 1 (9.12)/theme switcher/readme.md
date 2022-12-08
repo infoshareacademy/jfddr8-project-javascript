@@ -4,7 +4,7 @@
 2. Wciśnięcie przycisku "dark mode":
    - cała strona dostaje czarne tło;
    - przyciski dostają białe obramowanie i biały tekst;
-   Wciśnięcie przycisku "light mode":
+3. Wciśnięcie przycisku "light mode":
    - cała strona dostaje białe tło;
    - przyciski dostają czarne obramowanie i czarny tekst;
-3. Przyda się funkcja "querySelector".
+4. Przyda się funkcja "querySelector".
