@@ -1,6 +1,7 @@
 const btnDark = document.querySelector(".btnDark");
 const btnLight = document.querySelector(".btnLight");
 const body = document.querySelector("body");
+
 btnDark.addEventListener("click", () => {
   body.style.backgroundColor = "black";
   btnDark.style.color = "white";
