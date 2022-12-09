@@ -5,9 +5,8 @@ var appendSeconds =document.getElementById("seconds");
 var buttonStart = document.getElementById("button-start");
 var buttonStop = document.getElementById("button-stop");
 var buttonReset = document.getElementById("button-reset");
-var interval; //to store timer values
+var interval; 
 
-//this function will run when click on start
  function Stoper(){
  	tens++;
  	 if(tens < 9){
