@@ -3,21 +3,49 @@ const stopBtn = document.querySelector("#button-stop");
 const resetBtn = document.querySelector("#button-reset");
 const secondsBtn = document.querySelector("#seconds");
 const tensBtn = document.querySelector("#tens");
+
 function Stoper() {
   let tens = 0;
   let seconds = 0;
-  let interval;
+  let startCounting;
+  let stopCounting;
+
   let start = () => {
+    clearInterval(startCounting);
     tens = tens + 1;
     tensBtn.innerHTML = "0" + tens;
-    if (tens == 9) {
+    secondsBtn.innerHTML = "0" + seconds;
+
+    startCounting = setInterval(start, 10);
+    if (tens === 9) {
       tens = -1;
+      seconds = seconds + 1;
+      startBtn.disabled = true;
     }
-    seconds = seconds + 1;
+    if (seconds >= 10) {
+      secondsBtn.innerHTML = seconds;
+    }
+    if (seconds == 60 && tens == 0) {
+      tens = 0;
+      seconds = 0;
+      stop();
+    }
   };
-  setInterval(start, 1000);
+  let stop = () => {
+    clearInterval(startCounting);
+    startBtn.disabled = false;
+  };
+  let reset = () => {
+    stop();
+    tensBtn.innerHTML = "00";
+    secondsBtn.innerHTML = "00";
+    tens = 0;
+    seconds = 0;
+    startBtn.disabled = false;
+  };
+  stopBtn.addEventListener("click", stop);
+  resetBtn.addEventListener("click", reset);
+  startBtn.addEventListener("click", start);
 }
-// Stoper();
-startBtn.addEventListener("click", Stoper);
-// stopBtn.addEventListener("click");
-// resetBtn.addEventListener("click");
+
+window.onload = Stoper();
