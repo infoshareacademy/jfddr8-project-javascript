@@ -9,9 +9,12 @@ function Stoper() {
   let startCounting;
   let stopCounting;
   let start = () => {
+    clearInterval(startCounting);
     tens = tens + 1;
     tensBtn.innerHTML = "0" + tens;
     secondsBtn.innerHTML = "0" + seconds;
+    console.log("aaa");
+    startCounting = setInterval(start, 10);
     if (tens === 9) {
       tens = -1;
       seconds = seconds + 1;
@@ -20,11 +23,12 @@ function Stoper() {
     if (seconds >= 10) {
       secondsBtn.innerHTML = seconds;
     }
-    if (seconds == 60 && tens == 0){
+    if (seconds == 60 && tens == 0) {
+      tens = 0;
+      seconds = 0;
       stop();
-    };
+    }
   };
-  startCounting = setInterval(start, 10);
   let stop = () => {
     clearInterval(startCounting);
     startBtn.disabled = false;
@@ -39,6 +43,6 @@ function Stoper() {
   };
   stopBtn.addEventListener("click", stop);
   resetBtn.addEventListener("click", reset);
-  // startBtn.addEventListener("click", start);
+  startBtn.addEventListener("click", start);
 }
-startBtn.addEventListener("click", Stoper);
+window.onload = Stoper();
