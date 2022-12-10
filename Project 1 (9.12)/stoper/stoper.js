@@ -13,12 +13,14 @@ function Stoper() {
     tens = tens + 1;
     tensBtn.innerHTML = "0" + tens;
     secondsBtn.innerHTML = "0" + seconds;
-    console.log("aaa");
     startCounting = setInterval(start, 10);
-    if (tens === 9) {
+    if (tens > 99) {
       tens = -1;
       seconds = seconds + 1;
       startBtn.disabled = true;
+    }
+    if (tens >= 10) {
+      tensBtn.innerHTML = tens;
     }
     if (seconds >= 10) {
       secondsBtn.innerHTML = seconds;
