@@ -10,20 +10,20 @@ function Stoper() {
   let stopCounting;
   let start = () => {
     clearInterval(startCounting);
+    startCounting = setInterval(start, 10);
     tens = tens + 1;
     tensBtn.innerHTML = "0" + tens;
     secondsBtn.innerHTML = "0" + seconds;
-    startCounting = setInterval(start, 10);
-    if (tens > 99) {
-      tens = -1;
-      seconds = seconds + 1;
-      startBtn.disabled = true;
-    }
     if (tens >= 10) {
       tensBtn.innerHTML = tens;
     }
     if (seconds >= 10) {
       secondsBtn.innerHTML = seconds;
+    }
+    if (tens === 99) {
+      tens = -1;
+      seconds = seconds + 1;
+      startBtn.disabled = true;
     }
     if (seconds == 60 && tens == 0) {
       tens = 0;
