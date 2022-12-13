@@ -17,6 +17,14 @@ function Stoper() {
     clearInterval(Interval);
   };
 
+  buttonReset.onclick = function () {
+    clearInterval(Interval);
+    tens = 0;
+    seconds = 0;
+    countingTens.innerText = "0" + tens;
+    countingSeconds.innerText = "0" + seconds;
+  };
+
   function startTimer() {
     tens++;
     if (tens <= 9) {
@@ -24,6 +32,15 @@ function Stoper() {
     }
     if (tens > 9) {
       countingTens.innerHTML = tens;
+    }
+    if (tens > 99) {
+      seconds++;
+      countingSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      countingTens.innerHTML = "0" + 0;
+    }
+    if (seconds > 9) {
+      countingSeconds.innerHTML + seconds;
     }
   }
 }
