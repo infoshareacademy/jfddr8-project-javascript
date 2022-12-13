@@ -1,0 +1,3 @@
+function samogloski(slowo) {
+    
+}
