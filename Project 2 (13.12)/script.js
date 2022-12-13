@@ -54,14 +54,14 @@
 // const vowels = ["a","e","i","o","u"]
 // function countVowels(str) {
 //     let counter = 0;
-//     for(let letter of str){
-//         if(vowels.includes(letter)){
-//             counter += counter[i]
+//     for(let letter of str) {
+//         if(vowels.includes(letter)) {
+//            counter++;
 //         }
 //     }
 //     return counter
 // }
-// console.log(str("lampard"))
+// console.log(countVowels('lampard'));
 
 
 //zad 5
