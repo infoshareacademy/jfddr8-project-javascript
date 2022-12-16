@@ -38,22 +38,4 @@ console.log(table);
     newTable();
     let allCells = document.getElementsByTagName("td");
     console.log(allCells.length);
-    
-    //for (let i = 0; 1 )
-    //let cellText = allCells.innerText = "(`cell in row ${rows}, column ${columns}`)";
-    //let textNode = document.createTextNode(`cell in row ${rows}, column ${columns}`);
-    //document.newTableCell.appendChild(textNode);
-    }
-
-
-
-    /*
-        let newTableColumn = document.createElement("td");
-        // and give it some content
-        let newContent = document.createTextNode("Hi there and greetings!");
-        // add the text node to the newly created div
-        newDiv.appendChild(newContent);
-      
-        // add the newly created element and its content into the DOM
-        const currentDiv = document.getElementById("div1");
-        document.body.insertBefore(newDiv, currentDiv);*/
+}
