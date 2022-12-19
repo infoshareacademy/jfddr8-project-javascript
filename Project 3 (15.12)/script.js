@@ -28,14 +28,24 @@ console.log(table);
         } else {
         for (let i = 0; i <= rows - 1; i++){
             let newTableRow = document.createElement("tr");
-            for (let i = 0; i <= columns - 1; i++) {
+            for (let itr = 0; itr <= columns - 1; itr++) {
             let newTableCell = document.createElement("td");
+            let text = `cell in row ${i + 1}, column ${itr + 1}`;
+            let newtext = document.createTextNode(text);
+            newTableCell.appendChild(newtext);
             newTableRow.appendChild(newTableCell);
             }
             table.appendChild(newTableRow);
-        }}
+            function changeColor(evt) {
+                evt.target.style.backgroundColor = 'yellow';
+            }
+            newTableRow.addEventListener('click', changeColor, false);
+        }
+        let allCells = document.getElementsByTagName("td");
+        console.log(allCells);
+        let tableData = document.querySelectorAll("td");
+        console.log(tableData);
+        }        
     }
     newTable();
-    let allCells = document.getElementsByTagName("td");
-    console.log(allCells.length);
 }
