@@ -33,3 +33,22 @@
 //   return Math.abs(arraysVolume);
 // }
 // console.log(volumeArrays(arr1, arr2));
+
+// Exercise 4
+
+// const vowels = ["a","e","i","o","u"];
+
+// function howManyVowels(string) {
+//   let counter = 0;
+//   for(let letter of string) {
+//     if (vowels.includes(letter)) {
+//     counter++
+//     }
+//   }
+//   return counter;
+// }
+
+// console.log(howManyVowels("jaguar"));
+
+
+
