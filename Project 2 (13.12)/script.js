@@ -50,5 +50,12 @@
 
 // console.log(howManyVowels("jaguar"));
 
+// Exercise 5
 
+// function highestNumber(n, array) {
+//   let sortedArray = array.sort().reverse().slice(0,n)
+//   return sortedArray
 
+// }
+
+// console.log(highestNumber(2,[1,2,3,4,5]))
