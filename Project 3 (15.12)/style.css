@@ -1,3 +1,11 @@
 .table-color {
     background-color: yellow;
 }
+
+table {
+    border: 2px solid black;
+}
+
+td {
+    cursor: pointer;
+}
