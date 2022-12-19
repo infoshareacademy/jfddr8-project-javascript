@@ -59,3 +59,19 @@
 // }
 
 // console.log(highestNumber(2,[1,2,3,4,5]))
+
+// Exercise 6
+
+// function splitBill(amountPayed){
+//     const totalAmountPaid = Object.values(amountPayed).reduce((acc, amount) => acc + amount);
+//     const amountDept = totalAmountPaid / Object.keys(amountPayed).length
+//     const amountDueForEachPerson = {}
+//         for (let [person, payed] of Object.entries(amountPayed)){
+//             amountDueForEachPerson[person] = amountDept - payed;
+//         }
+    
+//     return amountDueForEachPerson
+// }
+
+// console.log(splitBill({George: 15, Bettie: 10, Anna: 5}))
+
