@@ -65,14 +65,12 @@ countVowels('mama');
 
 // exercise 5
 
-function twoArguments(n, array) {
-	let n = 2;
-	let array = [2, 3, 4, 5];
-	const newArray = [...array];
+const newArray = (number, arr) => {
+	arr.sort((a, b) => a - b);
+	const newArr = arr.slice(-number);
+	console.log(newArr);
+};
 
-	console.log(newArray);
-}
+newArray(5, [5, 45, 3, 100, 1, 4, 2, 10, 20, 40]);
 
-
-
-
+// exercise 6 
