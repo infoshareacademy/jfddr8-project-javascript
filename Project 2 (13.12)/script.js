@@ -68,9 +68,28 @@ countVowels('mama');
 const newArray = (number, arr) => {
 	arr.sort((a, b) => a - b);
 	const newArr = arr.slice(-number);
+	newArr.sort((a, b) => b - a)
 	console.log(newArr);
 };
+newArray(5, [5, 45, 78, 3, 100, 1, 4, 2, 10, 20, 40]);
 
-newArray(5, [5, 45, 3, 100, 1, 4, 2, 10, 20, 40]);
+// ex 6
 
-// exercise 6 
+const person = {
+	George: 15,
+	Bettie: 10,
+	Anna: 5,
+	Maja: 40,
+};
+
+const splitReceipt = (object) => {
+	const arr = Object.values(object);
+	const sum = arr.reduce((a, c) => a + c);
+	const average = sum / arr.length;
+	const object2 = Object.fromEntries(
+		Object.entries(object).map(([key, val]) => [key, val - average])
+	);
+	console.log(object2);
+};
+
+splitReceipt(person);
