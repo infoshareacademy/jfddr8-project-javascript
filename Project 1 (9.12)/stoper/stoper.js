@@ -5,13 +5,18 @@ const buttonReset=document.getElementById('button-reset')
 const buttonStop=document.getElementById('button-stop')
 let Interval;
 
-buttonStart.onlick=function()
-{
-Interval=setInterval(startTimer,10)
+buttonstart()
+{ 
+buttonStart=setInterval(Stoper(),10);
+tens++;
 }
-function startTimer()
+buttonstop()
 {
-tens++
+buttonStop=clearInterval();
+}
+buttonReset()
+{
+    buttonReset=tens;
 }
 
 }
