@@ -7,16 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Create table:</h1>
-    <table>
-        <tr>
-            <th>Number of Rows </th>
-            <td><input id="row" value="0" /></td>
-            <th>Number of Columns</th>
-            <td><input id="col" value="0" /></td>
-        </tr>
-    </table>
+    <h1>Create table:</h1> 
+        <label>Number of Rows </label>
+        <input id="row" type="number" max="50" value="0" />
+        <label>Number of Columns</label>
+        <input id="col" type="number" max="50" value="0" />
     <button id="create" onclick="createTable()">Create table</button>
+    <table></table>
     <script src="script.js"></script>
 </body>
 </html>

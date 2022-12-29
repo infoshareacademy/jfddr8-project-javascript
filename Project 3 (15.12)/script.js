@@ -1,8 +1,10 @@
-function createTable() {  
+
+function createTable() {
+    
     const row = document.getElementById("row").value;
     const col = document.getElementById("col").value;
-    const table = document.createElement("table");
-    const tblBody = document.createElement("tbody");
+    const table = document.querySelector("table");
+    table.innerHTML=""; 
   
     for (let r=0; r < row; r++) {
       const row = document.createElement("tr");
@@ -13,12 +15,9 @@ function createTable() {
         cell.appendChild(cellText);
         row.appendChild(cell);
       }
-  
       table.appendChild(row);
     }
-  
-    table.appendChild(tblBody);
-    document.body.appendChild(table);
+
     table.setAttribute("border", "2");
 
     const targetCells = document.querySelectorAll("td");
