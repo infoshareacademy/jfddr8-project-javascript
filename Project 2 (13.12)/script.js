@@ -18,3 +18,30 @@ const changeFirstCharacter = (string) => {
 };
 
 changeFirstCharacter("Marek Jurek");
+
+// 3rd task
+const volumeDifference = () => {
+  const firstArr = [1, 2, 3];
+  const secondArr = [4, 2, 8];
+
+  const firstVolume = firstArr.reduce(
+    (volume, currentValue) => volume * currentValue,
+    1
+  );
+
+  const secondVolume = secondArr.reduce(
+    (volume, currentValue) => volume * currentValue,
+    1
+  );
+
+  let result;
+  if (firstVolume >= secondVolume) {
+    result = firstVolume - secondVolume;
+  } else {
+    result = secondVolume - firstVolume;
+  }
+
+  console.log(result);
+};
+
+volumeDifference();
