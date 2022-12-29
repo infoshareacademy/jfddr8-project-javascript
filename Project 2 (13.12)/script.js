@@ -1,12 +1,12 @@
-// 1st task
+//          1st task
 const reverseString = (text) => {
   const newText = text.split("").reverse().join("");
-  console.log(newText);
+  return newText;
 };
 
 reverseString("Agnieszka");
 
-//2nd task
+//            2nd task
 const changeFirstCharacter = (string) => {
   const firstLetterFirstWord = string.split(" ")[0].slice(0, 1);
   const firstLetterSecondWord = string.split(" ")[1].slice(0, 1);
@@ -14,12 +14,13 @@ const changeFirstCharacter = (string) => {
   const newFirstWord = firstLetterSecondWord + string.split(" ")[0].slice(1);
   const newSecondWord = firstLetterFirstWord + string.split(" ")[1].slice(1);
 
-  console.log(newFirstWord + " " + newSecondWord);
+  const result = newFirstWord + " " + newSecondWord;
+  return result;
 };
 
 changeFirstCharacter("Marek Jurek");
 
-// 3rd task
+//          3rd task
 const volumeDifference = () => {
   const firstArr = [1, 2, 3];
   const secondArr = [4, 2, 8];
@@ -42,34 +43,16 @@ const volumeDifference = () => {
   }
 
   console.log(result);
+  return result;
 };
 
 volumeDifference();
 
-//4th task
+//      4th task
 
 const vowel = (string) => {
-  const vowel = [
-    "a",
-    "ą",
-    "e",
-    "ę",
-    "i",
-    "o",
-    "ó",
-    "u",
-    "y",
-    "A",
-    "Ą",
-    "E",
-    "Ę",
-    "I",
-    "O",
-    "Ó",
-    "U",
-    "Y",
-  ];
-  const letters = string.split("");
+  const vowel = ["a", "ą", "e", "ę", "i", "o", "ó", "u", "y"];
+  const letters = string.split("").map((i) => i.toLowerCase());
   let vowelsArr = [];
 
   for (let i = 0; i < vowel.length; i++) {
@@ -77,8 +60,8 @@ const vowel = (string) => {
       letters.filter((letter) => letter.includes(vowel[i]))
     );
   }
-
   console.log("Number of vowel:", vowelsArr.length);
+  return vowelsArr.length;
 };
 
 vowel("Agnieszka");
@@ -90,7 +73,7 @@ const transformArray = (number, arr) => {
     return b - a;
   });
   const newArray = arrFromBigger.slice(0, number);
-  console.log(newArray);
+  return newArray;
 };
 
 transformArray(2, [5, 3, 1, 4, 2]);
@@ -105,7 +88,7 @@ const shareReceipt = (list) => {
   const result = Object.fromEntries(
     Object.entries(list).map(([key, val]) => [key, val - amountPerPerson])
   );
-  console.log(result);
+  return result;
 };
 
 shareReceipt({
