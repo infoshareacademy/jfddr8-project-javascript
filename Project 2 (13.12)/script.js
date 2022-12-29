@@ -45,3 +45,42 @@ const volumeDifference = () => {
 };
 
 volumeDifference();
+
+//4rd task
+
+const vowel = (string) => {
+  const vowel = [
+    "a",
+    "ą",
+    "e",
+    "ę",
+    "i",
+    "o",
+    "ó",
+    "u",
+    "y",
+    "A",
+    "Ą",
+    "E",
+    "Ę",
+    "I",
+    "O",
+    "Ó",
+    "U",
+    "Y",
+  ];
+  const letters = string.split("");
+  let vowelsArr = [];
+
+  for (let i = 0; i < vowel.length; i++) {
+    vowelsArr = vowelsArr.concat(
+      letters.filter((letter) => letter.includes(vowel[i]))
+    );
+  }
+
+  console.log("Number of vowel:", vowelsArr.length);
+};
+
+vowel("Agnieszka");
+
+//5th task
