@@ -94,3 +94,22 @@ const transformArray = (number, arr) => {
 };
 
 transformArray(2, [5, 3, 1, 4, 2]);
+
+//6th task
+
+const shareReceipt = (list) => {
+  const amount = Object.values(list);
+  const amountPerPerson =
+    amount.reduce((sum, price) => sum + price, 0) / amount.length;
+
+  const result = Object.fromEntries(
+    Object.entries(list).map(([key, val]) => [key, val - amountPerPerson])
+  );
+  console.log(result);
+};
+
+shareReceipt({
+  George: 15,
+  Bettie: 10,
+  Anna: 5,
+});
