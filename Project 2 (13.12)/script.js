@@ -46,7 +46,7 @@ const volumeDifference = () => {
 
 volumeDifference();
 
-//4rd task
+//4th task
 
 const vowel = (string) => {
   const vowel = [
@@ -84,3 +84,13 @@ const vowel = (string) => {
 vowel("Agnieszka");
 
 //5th task
+
+const transformArray = (number, arr) => {
+  const arrFromBigger = arr.sort((a, b) => {
+    return b - a;
+  });
+  const newArray = arrFromBigger.slice(0, number);
+  console.log(newArray);
+};
+
+transformArray(2, [5, 3, 1, 4, 2]);
