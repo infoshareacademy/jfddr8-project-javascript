@@ -39,9 +39,18 @@ const checkNumber = (event) => {
   }
 };
 
-const changeColor = () => {
-  const cell = document.querySelectorAll("td");
-  cell.style.backgroundColor = "yellow";
+const changeColor = (singleCell) => {
+  const cell = singleCell.target;
+
+  if (cell.classList == "tdClicked") {
+    cell.classList.add("tdNotClicked");
+    cell.classList.remove("tdClicked");
+  } else if (cell.classList == "tdNotClicked") {
+    cell.classList.add("tdClicked");
+    cell.classList.remove("tdNotClicked");
+  } else {
+    cell.classList.add("tdClicked");
+  }
 };
 
 generateBtn.addEventListener("click", checkNumber);
