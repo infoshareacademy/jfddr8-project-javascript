@@ -33,8 +33,8 @@ const checkNumber = (event) => {
   alert.innerText = "";
   if (rowsInput.value < 0 || colsInput.value < 0) {
     alert.innerText = "Incorrect number. Enter a positive value!";
-  } else if (rowsInput.value > 10 || colsInput.value > 10) {
-    alert.innerText = "Please, enter a number that is less than 10";
+  } else if (rowsInput.value > 100 || colsInput.value > 100) {
+    alert.innerText = "Please, enter a number that is less than 100";
     event.stopImmediatePropagation();
   }
 };
