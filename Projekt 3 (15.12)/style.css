@@ -1,4 +1,4 @@
-botton {
+button {
   padding: 10px 40px;
   background-color: hotpink;
   margin: 10px;
@@ -6,6 +6,8 @@ botton {
 
 table {
   border: 1px solid black;
+  width: 50%;
+  height: 30px;
 }
 
 tr {

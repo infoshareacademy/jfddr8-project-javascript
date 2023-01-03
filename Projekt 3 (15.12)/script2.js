@@ -1,10 +1,10 @@
-const rowInput = document.querySelector(".row");
-const columnInput = document.querySelector(".column");
+const rowInput = document.getElementById("rows").value;
+const columnInput = document.getElementById("columns").value;
 const button = document.querySelector(".button");
 const table = document.querySelector(".mainTable");
 
 let displayTable = () => {
-  table.innejHTML = "";
+  table.innerHTML = "";
   const rowNumber = rowInput.value;
   const columnNumber = columnInput.value;
   for (let i = 0; i < rowNumber; i++) {
@@ -19,13 +19,13 @@ let displayTable = () => {
     }
     table.appendchild(row);
   }
-  const yellow = document.querySelectorAll("td");
-  targetCells.forEach((element) =>
-    element.addEventListener("click", () => {
-      element.style.background = "yellow"
-        ? (element.style.background = "transparent")
-        : (element.style.background = "yellow");
-    })
-  );
+  // const yellow = document.querySelectorAll("td");
+  // targetCells.forEach((element) =>
+  //   element.addEventListener("click", () => {
+  //     element.style.background = "yellow"
+  //       ? (element.style.background = "transparent")
+  //       : (element.style.background = "yellow");
+  //   })
+  // );
 };
 button.addEventListener("click", displayTable);
