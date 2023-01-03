@@ -33,7 +33,7 @@ function TABELAWYSWIETLANA() {
     let targetCells = document.querySelectorAll("td");
     targetCells.forEach((KOMORKAwTABELI) =>
       KOMORKAwTABELI.addEventListener("click", () => {
-        KOMORKAwTABELI.style.background = "yellow"
+        KOMORKAwTABELI.style.background === "yellow"
           ? (KOMORKAwTABELI.style.background = "transparent")
           : (KOMORKAwTABELI.style.background = "yellow");
       })
