@@ -1,58 +1,31 @@
-// dać w html max ilość kolumn i rzędów
-//createTextNode do punktu 3go
+function generateTable() {
+    const table = document.querySelector("table");
+    table.innerHTML = "";
+    const tblBody = document.createElement("tbody");
+    const numberOfRows = document.getElementById("numberOfRows").value;
+    const numberOfColumns = document.getElementById("numberOfColumns").value;
 
-const rowsInput = document.getElementById("rows");
-const colsInput = document.getElementById("cols");
-const generateBtn = document.getElementById("generate");
-let tableContainer = document.getElementById("table");
-
-let tableRow;
-let tableCol;
-
-const addTable = (event) => {
-  event.preventDefault();
-  tableContainer.innerHTML = '<table id="table"></table>';
-
-  for (let iRow = 1; iRow <= rowsInput.value; iRow++) {
-    tableRow = document.createElement("tr");
-    a = tableContainer.appendChild(tableRow);
-
-    for (let iCol = 1; iCol <= colsInput.value; iCol++) {
-      let tableCol = document.createElement("td");
-      tableCol.textContent = "cell in row" + iRow + ",column" + iCol;
-      tableCol.style.cursor = "pointer";
-      tableRow.append(tableCol);
-      tableCol.style.border = "2px solid black";
+    if (numberOfRows < 0 || numberOfColumns < 0) {
+        alert("Please provide only positive integers");
     }
-  }
-};
 
-const checkNumber = (event) => {
-  const alert = document.querySelector("aside");
-  alert.style.color = "red";
-  alert.innerText = "";
-  if (rowsInput.value < 0 || colsInput.value < 0) {
-    alert.innerText = "Incorrect number. Enter a positive value!";
-  } else if (rowsInput.value > 100 || colsInput.value > 100) {
-    alert.innerText = "Please, enter a number that is less than 100";
-    event.stopImmediatePropagation();
-  }
-};
+    for (let i = 0; i < numberOfRows; i++) {
+        const row = document.createElement("tr");
 
-const changeColor = (singleCell) => {
-  const cell = singleCell.target;
+        for (let j = 0; j < numberOfColumns; j++) {
+            const cell = document.createElement("td");
+            const cellText = document.createTextNode(`cell in row ${i+1}, column ${j+1}`);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
 
-  if (cell.classList == "tdClicked") {
-    cell.classList.add("tdNotClicked");
-    cell.classList.remove("tdClicked");
-  } else if (cell.classList == "tdNotClicked") {
-    cell.classList.add("tdClicked");
-    cell.classList.remove("tdNotClicked");
-  } else {
-    cell.classList.add("tdClicked");
-  }
-};
+        tblBody.appendChild(row);
+    }
 
-generateBtn.addEventListener("click", checkNumber);
-generateBtn.addEventListener("click", addTable);
-tableContainer.addEventListener("click", changeColor);
+    table.appendChild(tblBody);
+
+    const tableCell = document.querySelectorAll("td");
+    tableCell.forEach((cell) => cell.addEventListener("click", () => {
+        cell.style.backgroundColor === "yellow" ? cell.style.backgroundColor = "transparent" : cell.style.backgroundColor = "yellow";
+    }))
+}
