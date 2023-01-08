@@ -6,17 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
-        <script src="table.js"></script>
        
     </head>
     <body>
-        <input id="columnsNumber" type="number" placeholder="enter column number"/>
-        <input id="rowNumber" type="number" placeholder="enter row number"/>
-        <button id="button" type="submit" onclick="generateTable()">Generate table</button>
-
-        <div id="tableContainer"><table id="theTable"></table></div>
+        <div>
+            <span>Number of rows <input type="number" id="numberOfRows"/></span>
+            <span>Number of columns <input type="number" id="numberOfColumns"/></span>
+            <input type="button" value="generate a table" onclick="generateTable()"/>
+        </div>
+        <table></table>
+        <script src="script.js"></script>
     </body>
-    
     </html>
     
     
@@ -25,13 +25,4 @@
     
 
     
-    <!-- <style>
-        table{
-            border-collapse: collapse;
-            border-spacing: 0;
-        }
-        th, td{
-            padding: 10px 20px;
-            border: 1px solid #000;
-        }
-    </style> -->
+    
