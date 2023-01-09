@@ -2,13 +2,13 @@ const productElement = document.querySelector(".products");
 const favoriteElement = document.querySelector(".favorites");
 const localStorageKey = "FavoriteProducts";
 
+
 const fetchProducts = () => {
   fetch("https://dummyjson.com/products")
     .then((response) => response.json())
     .then((results) => {
       const products = results.products;
       const productUL = document.createElement("ul");
-      productUL.classList.add("cos");
       productElement.appendChild(productUL);
       products.forEach((product) => {
         const productLi = document.createElement("li");
@@ -25,10 +25,32 @@ const fetchProducts = () => {
 
 fetchProducts();
 const addToFavorite = (product) => {
-    
-    const favoriteProducts = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  const favoriteProducts =
+    JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  const isInFavorites = favoriteProducts.some(
+    (favoriteProduct) => favoriteProduct.price === product.price
+  );
+  if (isInFavorites) {
+    alert(`${product.title} is already in your favorites!`);
+  } else {
     favoriteProducts.push(product);
-    localStorage.setItem(localStorageKey,JSON.stringify(favoriteProducts))
-      favoriteProducts.includes(product) ? console.log('true') : console.log('o cie Uj')
-    
+    localStorage.setItem(localStorageKey, JSON.stringify(favoriteProducts));
+  }
 };
+
+const displayFavorites = () => {
+  const favoriteProducts =
+    JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  const favoriteUl = document.createElement("ul");
+  favoriteElement.appendChild(favoriteUl);
+  favoriteElement.innerHTML = "";
+  favoriteProducts.forEach((product) => {
+    const favoriteLi = document.createElement("li");
+    favoriteLi.innerText = `${product.title} ${product.price}`;
+    favoriteElement.appendChild(favoriteLi);
+  });
+};
+
+setInterval(displayFavorites, 5000);
+
+displayFavorites();
