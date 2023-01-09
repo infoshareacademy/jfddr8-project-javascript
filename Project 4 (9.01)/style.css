@@ -8,17 +8,23 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	min-height: 100vh;
+	height: 100%;
+	width: 100%;
 	background-color: rgb(250, 245, 215);
 }
 
 .box {
 	display: flex;
+	justify-content: center;
 }
 
 .col {
 	padding: 10px 20px;
 	text-align: center;
+}
+
+.favorites {
+	max-width: 30%;
 }
 
 h1 {
@@ -54,5 +60,5 @@ li {
 .box-products {
 	display: flex;
 	justify-content: space-between;
-    padding: 5px 0px;
+	padding: 5px 0px;
 }
