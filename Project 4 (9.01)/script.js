@@ -24,8 +24,31 @@ const fetchProducts = () => {
 };
 
 fetchProducts();
+
 const addToFavorite = (product) => {
     const favoriteProducts = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    const isInFavorites = favoriteProducts.some(favoriteProduct => favoriteProduct.title === product.title);
+    if (isInFavorites) {
+      alert(`${product.title} is already in your favorites!`);
+  } else {
     favoriteProducts.push(product);
     localStorage.setItem(localStorageKey,JSON.stringify(favoriteProducts))   
 };
+};
+
+const displayFavorites = () => {
+  const favoriteProducts = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  const favoriteUl = document.createElement("ul");
+  favoriteElement.appendChild(favoriteUl);
+  favoriteElement.innerHTML = "";
+  favoriteProducts.forEach((product) => {
+    const favoriteLi = document.createElement("li");
+    favoriteLi.innerText = `${product.title} ${product.price}`;
+    favoriteElement.appendChild(favoriteLi);
+  });
+};
+
+setInterval(displayFavorites, 5000);
+
+displayFavorites();
+
