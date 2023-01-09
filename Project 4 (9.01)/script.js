@@ -23,22 +23,8 @@ const fetchProducts = () => {
     });
 };
 
-// fetchProducts();
-// const addToFavorite = (product) => {
-//   const favoriteProducts =
-//     JSON.parse(localStorage.getItem(localStorageKey)) || [];
-//   // jeżeli jest coś w localStorage to wrzuci w local jeżeli nie ma to pusta arrayka
-//   if (favoriteProducts.includes(product)) {
-//     console.log("jest");
-//   } else {
-//     favoriteProducts.push(product);
-//     localStorage.setItem(localStorageKey, JSON.stringify(favoriteProducts));
-//   }
-//   console.log(favoriteProducts);
-//   console.log(product);
-// };
-
 fetchProducts();
+
 const addToFavorite = (product) => {
   const favoriteProducts =
     JSON.parse(localStorage.getItem(localStorageKey)) || [];
@@ -52,3 +38,20 @@ const addToFavorite = (product) => {
     localStorage.setItem(localStorageKey, JSON.stringify(favoriteProducts));
   }
 };
+
+const displayFavorites = () => {
+  const favoriteProducts =
+    JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  const favoriteUl = document.createElement("ul");
+  favoriteElement.appendChild(favoriteUl);
+  favoriteElement.innerHTML = "";
+  favoriteProducts.forEach((product) => {
+    const favoriteLi = document.createElement("li");
+    favoriteLi.innerText = `${product.title} ${product.price}`;
+    favoriteElement.appendChild(favoriteLi);
+  });
+};
+
+setInterval(displayFavorites, 5000);
+
+displayFavorites();
