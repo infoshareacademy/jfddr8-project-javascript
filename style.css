@@ -1,0 +1,58 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-height: 100vh;
+	background-color: rgb(250, 245, 215);
+}
+
+.box {
+	display: flex;
+}
+
+.col {
+	padding: 10px 20px;
+	text-align: center;
+}
+
+h1 {
+	padding: 10px 20px;
+	text-transform: uppercase;
+	border: 1px solid black;
+}
+
+ul {
+	list-style-position: inside;
+}
+
+li {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+.btn {
+	margin-left: 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 8px;
+	background-color: rgb(167, 185, 236);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: rgb(108, 175, 252);
+}
+
+.box-products {
+	display: flex;
+	justify-content: space-between;
+    padding: 5px 0px;
+}
