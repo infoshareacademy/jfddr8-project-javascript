@@ -1,0 +1,13 @@
+.button{
+    padding: 5px;
+}
+
+body{
+    display: flex;
+    
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+}
