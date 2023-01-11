@@ -1,40 +1,47 @@
-const containerData = document.querySelector('#data');
-const addButton = document.querySelector('#addMe');
-const inputUser = document.querySelector('#username');
+const containerData = document.querySelector("#data");
+const addButton = document.querySelector("#addMe");
+const inputUser = document.querySelector("#username");
 
 const fetchUsers = () => {
-fetch('https://reqres.in/api/users')
-    .then(response => response.json())
-    .then(result => {
-        console.log(result.data);
-        const userData = result.data
+    fetch("https://reqres.in/api/users")
+    .then((response) => response.json())
+    .then((result) => {
+        const userData = result.data;
         const userElement = userData.map((element) => {
-            const innerUserElement = document.createElement('div');
-            innerUserElement.innerHTML = `
+        const innerUserElement = document.createElement("div");
+        innerUserElement.innerHTML = `
             <img src=${element.avatar}></img> ${element.first_name} ${element.last_name}`;
-            return innerUserElement
-        })
-        containerData.append(...userElement)
+        return innerUserElement;
+        });
+        containerData.append(...userElement);
     })
-    .catch(error => {
-        console.log(error)
+    .catch((error) => {
+        console.log(error);
     });
 };
 
 addUsers = () => {
     const name = inputUser.value;
-    console.log(name);
     const innerUserElement = document.createElement("div");
-    innerUserElement.innerHTML = `
-          <img width='128px' height='128px'src='https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img> ${name} 
-      `;
-      containerData.append(innerUserElement)
-    fetch("https://reqres.in/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name }),
+    if (name !== "") {
+    innerUserElement.innerHTML = "LOADING........";
+    setTimeout(() => {
+        innerUserElement.innerHTML = `
+            <img width='128px' height='128px'src='https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img> ${name} 
+        `;
+    }, 5000);
+    containerData.append(innerUserElement);
+};
+
+fetch("https://reqres.in/api/users", {
+    method: inputUser.value === "" ? "PSOT" : "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name }),
+}).catch(() => {
+    alert("Podaj nazwę użytkownika");
+    innerUserElement.innerHTML = "";
     });
 };
-  
+
 addButton.addEventListener("click", addUsers);
 fetchUsers();
