@@ -1,5 +1,6 @@
 const containerData = document.querySelector('#data');
-
+const addButton = document.querySelector('#addMe');
+const inputUser = document.querySelector('#username');
 
 fetch('https://reqres.in/api/users')
     .then(response => response.json())
@@ -20,4 +21,13 @@ fetch('https://reqres.in/api/users')
     
 const listOfUsers = () => (containerData.innerHTML = '');
 listOfUsers();
-    
+
+addUsers = () => {
+    fetch('https://reqres.in/api/users'),{
+        method: 'POST',
+        headers: { 'Content-Type': "application/json"},
+        body: JSON.stringify({username}),
+    }
+}
+
+addButton.addEventListener('click', addUsers)
