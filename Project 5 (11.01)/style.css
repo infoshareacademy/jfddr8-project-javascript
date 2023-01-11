@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 20px 20px;
+	background-color: rgb(202, 182, 182);
+	font-family: sans-serif;
+}
+
+img {
+	margin-left: 20px;
+}
+
+input,
+label,
+button,
+p {
+	margin: 10px;
+	font-size: 25px;
+}
+
+button {
+	padding: 5px 10px;
+	width: 150px;
+	color: white;
+	background-color: rgb(109, 125, 180);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: rgb(69, 77, 117);
+}
