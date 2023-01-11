@@ -26,19 +26,26 @@ const fetchUsers = () => {
 
 addUsers = () => {
   const name = inputUser.value;
-  console.log(name);
   const innerUserElement = document.createElement("div");
-  innerUserElement.innerHTML = `
+  if (name !== "") {
+    innerUserElement.innerHTML = "LOADING........";
+    setTimeout(() => {
+      innerUserElement.innerHTML = `
         <img width='128px' height='128px'src='https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img> ${name} 
     `;
-    containerData.append(innerUserElement)
+    }, 5000);
+    containerData.append(innerUserElement);
+  }
+
   fetch("https://reqres.in/api/users", {
-    method: "POST",
+    method: inputUser.value === "" ? "PSOT" : "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name }),
+  }).catch(() => {
+    alert("Podaj nazwę użytkownika");
+    innerUserElement.innerHTML = "";
   });
 };
 
 addButton.addEventListener("click", addUsers);
 fetchUsers();
-
