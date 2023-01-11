@@ -1,64 +1,71 @@
 const URL = 'https://reqres.in/api/users';
-const input = document.querySelector('input')
-const btn = document.querySelector('button')
+const input = document.querySelector('input');
+const btn = document.querySelector('button');
 
 const getApi = () => {
-    fetch(URL)
-    .then(res => res.json())
-    .then(data => {
-        const users = data.data
-        // console.log(users);
-        for (const data in users) {
+	fetch(URL)
+		.then((res) => res.json())
+		.then((data) => {
+			const users = data.data;
 
-            const objectUsers = users[data]
-            const text = objectUsers.first_name + ' ' + objectUsers.last_name
-            // console.log(text); 
-            const avatar = objectUsers.avatar
-            // console.log(avatar);
-            const box = document.createElement('div')
-            const paragraph = document.createElement('p')
-            const img = document.createElement('img')
-            img.setAttribute('src', avatar)
-            // console.log(img);
-            paragraph.textContent = text
-            // console.log(paragraph);
-            // box.classList.add('.box')
-            document.body.appendChild(box)
-            box.appendChild(paragraph)
-            paragraph.appendChild(img)
-        }
-        
-    })
-}
+			for (const data in users) {
+				const objectUsers = users[data];
+				const text = objectUsers.first_name + ' ' + objectUsers.last_name;
+				const avatar = objectUsers.avatar;
+				const box = document.createElement('div');
+				const paragraph = document.createElement('p');
+				const img = document.createElement('img');
+				img.setAttribute('src', avatar);
+				paragraph.textContent = text;
+				document.body.appendChild(box);
+				box.appendChild(paragraph);
+				paragraph.appendChild(img);
+			}
+		});
+};
 
-getApi()
-
+getApi();
 
 const addCustomer = (name) => {
-fetch(URL, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({name})
-}).then(() => {
-    // getApi()
-    const box2 = document.createElement('div')
-    const paragraph2 = document.createElement('p')
-    const img = document.createElement('img');
-    img.setAttribute('src', 'https://reqres.in/img/faces/1-image.jpg')
-    paragraph2.textContent = name
-    document.body.append(box2)
-    paragraph2.appendChild(img)
-    box2.appendChild(paragraph2)
+	fetch(URL, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({ name }),
+	}).then(() => {
+		const box2 = document.createElement('div');
+		const paragraph2 = document.createElement('p');
+		document.body.append(box2);
+		box2.appendChild(paragraph2);
+		paragraph2.textContent = 'Loading';
 
-})
+		setTimeout(() => {
+			const img = document.createElement('img');
+			img.setAttribute('src', 'https://reqres.in/img/faces/1-image.jpg');
+			paragraph2.textContent = name;
+			paragraph2.appendChild(img);
+		}, 5000);
+        
+        input.value = ''
+	});
+};
 
-
-}
+const checkInput = () => {
+	if (input.value === '') {
+		fetch(URL, {
+			method: 'PSOT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ name }),
+		}).catch((err) => {
+			console.log(err);
+			alert('Należy podać nazwę użytkownika');
+		});
+	} else {
+		const addName = input.value;
+		addCustomer(addName);
+	}
+};
 
 btn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const addName = input.value
-    console.log(addName);
-    addCustomer(addName)
-} )
-
+	event.preventDefault();
+	checkInput();
+});
