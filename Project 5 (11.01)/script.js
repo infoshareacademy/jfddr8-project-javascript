@@ -46,9 +46,9 @@ fetch(URL, {
     const img = document.createElement('img');
     img.setAttribute('src', 'https://reqres.in/img/faces/1-image.jpg')
     paragraph2.textContent = name
+    document.body.append(box2)
     paragraph2.appendChild(img)
     box2.appendChild(paragraph2)
-    document.body.append(box2)
 
 })
 
